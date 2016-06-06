@@ -1,0 +1,30 @@
+<tool id="bam_to_bigwig" name="Convert Bam to BigWig" version="0.1.0">
+    <requirements>
+        <requirement type="package" version="312">ucsc_tools</requirement>
+        <requirement type="package" version="2.22">bedtools</requirement>
+    </requirements>
+    <stdio>
+        <exit_code range="1:" />
+    </stdio>
+    <command><![CDATA[
+        faToTwoBit $input_reference_fasta two_bit.2bit;
+        twoBitInfo two_bit.2bit stdout | sort -k2nr > chrom.sizes;
+        bedtools genomecov -bg -split -ibam $input_bam -g chrom.sizes > temp.bg;
+        bedGraphToBigWig temp.bg chrom.sizes $output_bigwig;
+    ]]></command>
+    <inputs>
+        <param format="bam" name="input_bam" type="data" label="Choose BAM file" />
+        <param format="fasta" name="input_reference_fasta"
+               type="data" label="Choose Reference Genome (Fasta)" />
+    </inputs>
+    <outputs>
+        <data format="bigwig" name="output_bigwig" />
+    </outputs>
+    <help>
+        This tool converts a Bam file to a BigWig file.
+
+        It needs:
+            - A Bam file
+            - The reference genome as a Fasta file
+    </help>
+</tool>
