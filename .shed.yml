@@ -1,0 +1,5 @@
+categories: []
+description: Convert Bam file to BigWig
+homepage_url: https://github.com/remimarenco/bamToBigwig
+name: bamtobigwig
+owner: remimarenco

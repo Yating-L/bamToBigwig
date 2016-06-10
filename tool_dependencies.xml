@@ -4,7 +4,7 @@
         <repository name="package_ucsc_tools_312" owner="iuc" prior_installation_required="True"/>
     </package>
 
-    <package name="bedtools" version="2.22">
+    <package name="bedtools" version="2.24">
         <repository name="package_bedtools_2_24" owner="iuc" prior_installation_required="True"/>
     </package>
 
