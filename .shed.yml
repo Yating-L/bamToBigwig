@@ -1,5 +1,5 @@
 categories: []
 description: Convert Bam file to BigWig
-homepage_url: https://github.com/remimarenco/bamToBigwig
+homepage_url: https://github.com/goeckslab/bamToBigwig.git
 name: bamtobigwig
-owner: remimarenco
+owner: yating-l
