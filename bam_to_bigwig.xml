@@ -9,7 +9,9 @@
     <command><![CDATA[
         faToTwoBit $input_reference_fasta two_bit.2bit;
         twoBitInfo two_bit.2bit stdout | sort -k2nr > chrom.sizes;
-        bedtools genomecov -bg -split -ibam $input_bam -g chrom.sizes > temp.bg;
+        bedtools genomecov -bg -split -ibam $input_bam -g chrom.sizes 
+        | LC_COLLATE=C sort -k1,1 -k2,2n
+        > temp.bg &&
         bedGraphToBigWig temp.bg chrom.sizes $output_bigwig;
     ]]></command>
     <inputs>
